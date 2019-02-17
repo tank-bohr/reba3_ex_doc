@@ -1,5 +1,5 @@
 {application, rebar3_ex_doc,
- [{description, "A rebar plugin"},
+ [{description, "A rebar plugin to build ex_doc documentation for the erlang edoc-annotated libraries"},
   {vsn, "0.1.0"},
   {registered, []},
   {applications,
@@ -8,7 +8,9 @@
    ]},
   {env,[]},
   {modules, []},
-
+  {links, [
+    {"Github", "https://github.com/tank-bohr/rebar3_ex_doc"}
+  ]},
   {licenses, ["Apache 2.0"]},
   {links, []}
  ]}.

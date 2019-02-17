@@ -1,0 +1,35 @@
+defmodule {{ app_name|capfirst }}Doc.MixProject do
+  use Mix.Project
+
+  def project do
+    [
+      app: :{{ app_name }},
+      version: "{{ app_version }}",
+      elixir: "~> 1.7",
+      deps: deps(),
+      compilers: [:app],
+
+      # Docs
+      name: "{{ app_name|upper }}",
+      source_url: "{{ source_url }}",
+      homepage_url: "{{ homepage_url }}",
+      docs: [
+        {% if logo %}
+        logo: "{{ logo }}"
+        {% endif %}
+        main: "{{ main }}",
+        extras: ["README.md"],
+        output: "{{ output }}",
+        source_beam: ["{{ source_beam }}"],
+        filter_prefix: false
+      ]
+    ]
+  end
+
+  defp deps do
+    [
+      {:{{ app_name }}, path: "{{ lib_path }}", only: :dev, compile: false, runtime: false},
+      {:ex_doc, github: "tank-bohr/ex_doc", branch: :master, only: :dev, runtime: false}
+    ]
+  end
+end

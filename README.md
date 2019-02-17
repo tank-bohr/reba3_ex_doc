@@ -1,7 +1,7 @@
 rebar3_ex_doc
 =====
 
-A rebar plugin
+A rebar plugin to build ex_doc documentation for the erlang edoc-annotated libraries
 
 Build
 -----
@@ -13,14 +13,18 @@ Use
 
 Add the plugin to your rebar config:
 
+```erlang
     {plugins, [
-        {rebar3_ex_doc, {git, "https://host/user/rebar3_ex_doc.git", {tag, "0.1.0"}}}
+        {rebar3_ex_doc, {git, "https://host/user/rebar3_ex_doc.git", {branch, "master"}}}
     ]}.
+
+    {ex_doc, [
+        {source_url, "https://github.com/<owner>/<repo>"}
+    ]}.
+```
 
 Then just call your plugin directly in an existing application:
 
-
-    $ rebar3 rebar3_ex_doc
-    ===> Fetching rebar3_ex_doc
-    ===> Compiling rebar3_ex_doc
-    <Plugin Output>
+```shell
+    $ rebar3 ex_doc
+```
